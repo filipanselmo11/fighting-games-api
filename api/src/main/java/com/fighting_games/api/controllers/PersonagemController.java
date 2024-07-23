@@ -18,7 +18,7 @@ import com.fighting_games.api.services.PersonagemService;
 
 
 @RestController
-@RequestMapping("/api/personagem")
+@RequestMapping("/api/personagens")
 public class PersonagemController {
     
     @Autowired

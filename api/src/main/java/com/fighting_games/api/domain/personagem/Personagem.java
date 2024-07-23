@@ -25,6 +25,6 @@ public class Personagem {
     @GeneratedValue
     private UUID id;
     private String nome;
-    private String imgUrl;
+    private String img;
     private Date data;
 }

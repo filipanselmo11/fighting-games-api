@@ -23,7 +23,7 @@ public class PersonagemService {
     public Personagem criarPersonagem(PersonagemRequestDto data) {
         Personagem personagem = new Personagem();
         personagem.setNome(data.nome());
-        personagem.setImgUrl(data.imgUrl());
+        personagem.setImg(data.img());
         personagem.setData(new Date(data.data()));
 
         personagemRepository.save(personagem);
