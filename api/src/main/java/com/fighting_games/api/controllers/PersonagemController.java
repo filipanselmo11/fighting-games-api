@@ -28,8 +28,8 @@ public class PersonagemController {
     private PersonagemService personagemService;
 
     @PostMapping
-    public ResponseEntity<Personagem> criarPersonagem(@RequestBody PersonagemRequestDto body) {
-        Personagem personagem =  this.personagemService.criarPersonagem(body);
+    public ResponseEntity<Personagem> criarPersonagem(@PathVariable UUID jogoId, @RequestBody PersonagemRequestDto body) {
+        Personagem personagem =  this.personagemService.criarPersonagem(jogoId, body);
         return ResponseEntity.ok(personagem);
     }
 
