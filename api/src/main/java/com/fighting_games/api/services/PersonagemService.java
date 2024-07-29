@@ -9,30 +9,25 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Service;
 
-import com.fighting_games.api.domain.jogo.Jogo;
+
 import com.fighting_games.api.domain.personagem.Personagem;
 import com.fighting_games.api.domain.personagem.PersonagemRequestDto;
 import com.fighting_games.api.domain.personagem.PersonagemResponseDto;
 import com.fighting_games.api.exceptions.ResourceNotFoundException;
-import com.fighting_games.api.repositories.JogoRepository;
 import com.fighting_games.api.repositories.PersonagemRepository;
 
 @Service
 public class PersonagemService {
     
-    @Autowired
-    private JogoRepository jogoRepository;
 
     @Autowired
     private PersonagemRepository personagemRepository;
 
-    public Personagem criarPersonagem(UUID jogoId, PersonagemRequestDto data) {
-        Jogo jogo = jogoRepository.findById(jogoId).orElseThrow(() -> new IllegalArgumentException("Jogo not found"));
+    public Personagem criarPersonagem(PersonagemRequestDto data) {
         Personagem personagem = new Personagem();
         personagem.setNome(data.nome());
         personagem.setImg(data.img());
-        personagem.setDescricao(data.descricao());
-        personagem.setJogo(jogo);
+        personagem.setJogo(data.jogo());
 
         personagemRepository.save(personagem);
 

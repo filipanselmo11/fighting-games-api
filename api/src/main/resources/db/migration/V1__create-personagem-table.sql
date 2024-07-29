@@ -1,8 +1,0 @@
-CREATE EXTENSION IF NOT EXISTS "pgcrypto";
-
-CREATE TABLE personagem(
-    id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
-    nome VARCHAR(100) NOT NULL,
-    img VARCHAR(100) NOT NULL,
-    data TIMESTAMP NOT NULL
-);
